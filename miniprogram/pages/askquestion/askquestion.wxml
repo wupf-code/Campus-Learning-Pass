@@ -1,0 +1,28 @@
+<!--pages/askquestion/askquestion.wxml-->
+<block>
+  <view class="view" >问题</view>
+  <textarea bindinput="addwords" value="{{words}}" confirm-type="return" maxlength="100" auto-height class="input" placeholder="请输入问题"/>
+  <view class="wordsnum">{{question.length}}字</view>
+  <label class="view">添加图片(最多两张)</label>
+  <view wx:if="{{photo.length==0}}">
+    <button bindtap="addimage" class="beforeaddimage"><image class="image" src="cloud://cloud1-9gfintjc7bd624b3.636c-cloud1-9gfintjc7bd624b3-1305383038/image/addimage.jpg"></image></button>
+  </view>
+  <view wx:else>
+    <view wx:for-items="{{photo}}" wx:for-item="item" wx:key="key">
+      <image src="{{item}}" class="addimage" bindtap="lookimage" data-item="{{item}}"></image>
+    </view>
+    <button bindtap="addimage" class="addimage"><image class="addimage_" src="cloud://cloud1-9gfintjc7bd624b3.636c-cloud1-9gfintjc7bd624b3-1305383038/image/addimage.jpg"></image></button>
+  </view>
+</block>
+<block>
+  <button type="primary" bindtap="uploadquestion" class="button">发布问题</button>
+</block>
+
+<dialog id='dialog'
+        title='提问' 
+        content='你确定要提问吗'
+        cancelText='取消' 
+        confirm='确定' 
+        isShown="{{isShown}}"
+        bind:cancelEvent="closedialog" 
+        bind:confirmEvent="allowask"/>

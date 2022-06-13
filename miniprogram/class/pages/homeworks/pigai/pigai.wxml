@@ -1,0 +1,63 @@
+<!--miniprogram/class/pages/pigai/pigai.wxml-->
+<!-- 老师上传批改界面 -->
+<scroll-view class="scroll-view">
+  <view class="name-class">
+    <text>
+     作业回答者：
+      {{answername}}
+    </text>
+  </view>
+
+  <view class="view">
+    <text>
+    作业内容:
+    {{homcontent}}
+    </text>
+  </view>
+<!-- 作业图片 -->
+  <view wx:if="{{qphoto_url.length>0}}">
+    <swiper easing-function="linear" class="swiper" autoplay indicator-dots="true" indicator-active-color="#BBBBBB" indicator-color="#E6E6E6" circular interval="5000">
+      <view wx:for-items="{{qphoto_url}}" wx:for-item="item" wx:key="key">
+      <swiper-item class="swiper-item"><image bindtap="lookimage" data-item="{{item}}"  mode="heightFix" src="{{item}}"/></swiper-item>
+      </view>
+    </swiper>
+  </view>
+
+ <view class="view">
+    <text>
+     回答内容 ：
+      {{answerwords}}
+    </text>
+  </view>
+
+   <!-- 回答图片 -->
+  <view wx:if="{{aphotourl.length>0}}">
+    <swiper easing-function="linear" class="swiper" autoplay indicator-dots="true" indicator-active-color="#BBBBBB" indicator-color="#E6E6E6" circular interval="5000">
+      <view wx:for-items="{{aphotourl}}" wx:for-item="item" wx:key="key">
+      <swiper-item class="swiper-item"><image bindtap="lookimage2" data-item="{{item}}"  mode="heightFix" src="{{item}}"/></swiper-item>
+      </view>
+    </swiper>
+  </view>
+
+  <block>
+  <view class="view" >作业评语:</view>
+  <textarea bindinput="addwords" value="{{words2}}" confirm-type="return" maxlength="10000" auto-height class="input_" placeholder="请输入评语"/>
+  <view class="wordsnum">{{words2.length}}字</view>
+
+   <view class="view" >作业等第:</view>
+  <textarea bindinput="addwords2" value="{{words}}" confirm-type="return" maxlength="10000" auto-height placeholder="请输入等第"/>
+  <view class="wordsnum">{{words.length}}字</view>
+</block>
+<block>
+  <button type="primary" bindtap="uploadtocloud" class="button">上传批改</button>
+</block>
+
+</scroll-view>
+<dialog id='dialog'
+        title='上传' 
+        content='你确定要上传吗'
+        cancelText='取消' 
+        confirm='确定' 
+        isShown="{{isShown1}}"
+        bind:cancelEvent="closedialog" 
+        bind:confirmEvent="allowupload"/>

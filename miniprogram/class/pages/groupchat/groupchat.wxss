@@ -1,0 +1,190 @@
+/* class/pages/groupchat/groupchat.wxss */
+page{
+	background-color: #FAFAFA;
+}
+.totalview{
+	margin-bottom: 100rpx;
+}
+.sendmessage{
+	display: flex;
+	position: fixed;
+	bottom: 40rpx;
+	width: 100%;
+	height: 70rpx;
+	background-color:	rgb(238,238,238);
+}
+.inputtext{
+	display: inline-block;
+	width: 70%;
+	height: 50rpx;
+	background-color: white;
+	margin-top: 10rpx;
+	margin-left: 20rpx;
+}
+.sendtext{
+	display: inline-block;
+	width: 70rpx;
+	height: 70rpx;
+	margin-left: 5rpx;
+	padding: 0rpx;
+}
+.sendtextimage{
+	width: 50rpx;
+	height: 50rpx;
+	margin: 0rpx;
+	padding: 0rpx;
+}
+.divLineup{
+	bottom: 112rpx;
+	position: fixed;
+  background: #E0E3DA;
+  width: 100%;
+  height: 5rpx;
+ }
+ .divLinedown{
+	bottom: 38rpx;
+	position: fixed;
+  background: #E0E3DA;
+  width: 100%;
+  height: 5rpx;
+ }
+ .openmedia{
+	display: inline-block;
+	height: 75rpx;
+	width: 75rpx;
+	margin-left: 20rpx;
+	padding: 5rpx;
+ }
+ .openmediaimage{
+	height: 70rpx;
+	width: 70rpx;
+ }
+ .showmedia{
+	display: flex;
+	position: fixed;
+	bottom: 40rpx;
+	width: 100%;
+	height: 200rpx;
+ }
+ .hidemedia{
+	bottom: 220rpx;
+	position: fixed;
+	width: 100%;
+	height: 40rpx;
+ }
+ .btnmedia1{
+	margin-top: 20rpx;
+	height: 160rpx;
+	width: 110rpx;
+	padding: 5rpx;
+ }
+ .media{
+	height: 150rpx;
+	width: 100rpx;
+	margin: 0rpx;
+ }
+ .divLinebottom{
+	bottom: 40rpx;
+	position: fixed;
+  background: #E0E3DA;
+  width: 100%;
+  height: 5rpx;
+ }
+.scroll-view{
+	height: 1200rpx;
+	padding: 30rpx;
+}
+
+.mymessage{
+	display:flex;
+	flex-direction: row-reverse;
+}
+.myprofile{
+	margin-right: 50rpx;
+	height: 70rpx;
+	width: 70rpx;
+	border-radius: 30rpx;
+}
+.myname{
+	margin-right: 10rpx;
+	margin-top: 20rpx;
+}
+.reverse{
+	display: flex;
+	flex-direction: row-reverse;
+}
+.mytext{
+	border: 3rpx solid lightgreen;
+	border-radius: 10rpx;
+	background-color: lightgreen;
+  padding: 10rpx;
+	margin-top: 30rpx;
+	margin-right: 150rpx;
+	max-width: 70%;
+}
+.myimage_view{
+	border: 3rpx solid lightgreen;
+	background-color: lightgreen;
+	border-radius: 10rpx;
+	padding: 10rpx;
+	margin-top: 30rpx;
+	margin-left: 50rpx;
+	max-width: 70%;
+	display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.space{
+	margin-top: 100rpx;
+}
+.othersmessage{
+	display:flex;
+	flex-direction: row;
+}
+.othersprofile{
+	height: 70rpx;
+	width: 70rpx;
+	border-radius: 30rpx;
+}
+.othersname{
+	margin-left: 10rpx;
+	margin-top: 20rpx;
+}
+.otherstext{
+	border: 3rpx solid;
+	border-radius: 10rpx;
+  padding: 10rpx;
+	margin-top: 30rpx;
+	margin-left: 50rpx;
+	max-width: 70%;
+	display: flex;
+  flex-direction: row;
+}
+.othersimage_view{
+	border: 3rpx solid;
+	border-radius: 10rpx;
+	padding: 10rpx;
+	margin-top: 30rpx;
+	margin-left: 50rpx;
+	max-width: 70%;
+	display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.block {
+  width: 250px;
+  height: 120px;
+  background-color: #fff;
+}
+.orderbutton{
+	border: solid 3rpx;
+	width: 100%;
+	height: 50%;
+}

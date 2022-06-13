@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents":{
+    "dialog":"../../components/dialog/dialog",
+    "van-card": "@vant/weapp/card"
+  }
+}

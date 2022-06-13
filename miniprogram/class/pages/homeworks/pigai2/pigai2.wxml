@@ -1,0 +1,56 @@
+<!--miniprogram/class/pages/pigai2/pigai2.wxml-->
+<!-- 老师查看已上传批改界面 -->
+<scroll-view class="scroll-view">
+  <view class="name-class">
+    <text>
+      作业发布时间：
+      {{time}}
+    </text>
+  </view>
+
+  <view class="view">
+    <text>
+      作业内容:
+      {{words}}
+    </text>
+  </view>
+ 
+  <!-- 作业图片 -->
+  <view wx:if="{{photo_url.length>0}}">
+    <swiper easing-function="linear" class="swiper" autoplay indicator-dots="true" indicator-active-color="#BBBBBB"
+      indicator-color="#E6E6E6" circular interval="5000">
+      <view wx:for-items="{{photo_url}}" wx:for-item="item" wx:key="key">
+        <swiper-item class="swiper-item">
+          <image bindtap="lookimage" data-item="{{item}}" mode="heightFix" src="{{item}}" />
+        </swiper-item>
+      </view>
+    </swiper>
+  </view>
+
+  <view class="view">
+    <text>
+      作业回答内容:
+      {{answer}}
+    </text>
+  </view>
+ <!-- 作业回答图片 -->
+  <view wx:if="{{photo_url2.length>0}}">
+    <swiper easing-function="linear" class="swiper" autoplay indicator-dots="true" indicator-active-color="#BBBBBB"
+      indicator-color="#E6E6E6" circular interval="5000">
+      <view wx:for-items="{{photo_url2}}" wx:for-item="item" wx:key="key">
+        <swiper-item class="swiper-item">
+          <image bindtap="lookimage2" data-item="{{item}}" mode="heightFix" src="{{item}}" />
+        </swiper-item>
+      </view>
+    </swiper>
+  </view>
+
+    <view class="view">
+    <text>
+      评语：
+      {{evaluate}}
+      等第：
+      {{grade}}
+    </text>
+  </view>
+</scroll-view>

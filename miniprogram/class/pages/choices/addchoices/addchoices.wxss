@@ -1,0 +1,43 @@
+/* class/pages/choices/addchoices/addchoices.wxss */
+.view{
+  font-size: 50rpx;
+}
+.bottombutton{
+  position: fixed;
+  bottom: 50rpx;
+  width: 40%;
+  left: 5%;
+}
+.bottombutton_{
+  position: fixed;
+  bottom: 50rpx;
+  width: 40%;
+  right: 5%;
+}
+.questiontitle{
+  margin: 20rpx;
+  width: auto;
+  background-color: rgb(204,204,204);
+  font-size: 50rpx;
+  height: auto;
+}
+.input{
+  margin: 20rpx;
+  width: auto;
+  background-color: rgb(204,204,204);
+  font-size: 50rpx;
+  height: auto;
+}
+.input_{
+  margin: 20rpx;
+  width: auto;
+  background-color:	rgb(204,204,204);
+  font-size: 50rpx;
+  min-height: 180rpx;
+}
+.oneline{
+  display: inline-block;
+}
+.showchoices{
+  margin-left: 30rpx;
+}

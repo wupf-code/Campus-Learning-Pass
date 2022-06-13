@@ -1,0 +1,11 @@
+<!--class/pages/choices/choicehomework_student_prepare/choicehomework_student_prepare.wxml-->
+<label class="view">{{questions.title}}</label>
+<label class="view">共{{questions.questionnum}}题</label>
+<label class="view">发布日期  {{questions.date}}</label>
+<view wx:if="{{!havedone}}" class="button">
+  <button type="primary" bindtap="begin" class="button_">开始答题</button>
+</view>
+<view wx:else class="button">
+  <button disabled="true" type="primary" bindtap="begin" class="button_">已完成</button>
+  <label class="view_">作业得分：{{rightnum}}/{{questions.questionnum}}</label>
+</view>

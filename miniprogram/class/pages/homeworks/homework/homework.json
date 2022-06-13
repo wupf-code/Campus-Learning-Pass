@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+    "tabs":"../../../../components/tabs/tabs",
+    "van-card": "@vant/weapp/card",
+    "van-button": "@vant/weapp/button",
+    "dialog":"../../../../components/dialog/dialog"
+  }
+}

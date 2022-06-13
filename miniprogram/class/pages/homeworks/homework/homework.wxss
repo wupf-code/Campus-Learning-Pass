@@ -1,0 +1,60 @@
+/* miniprogram/class/pages/homework/homework.wxss */
+.controldistance{
+  margin-bottom: 20%;
+}
+.view_toregister{
+  display: flex;
+  justify-content: center;
+  margin-top: 50%;
+  font-size: 60rpx;
+}
+.button_toregister{
+  margin-top: 10%;
+}
+.addbtn{
+  margin-top: 50rpx;
+  height: 200rpx;
+  line-height: 200rpx;
+  width: 200rpx;
+  position: relative;
+  bottom: 10rpx;
+  right: -250rpx;
+  border-radius: 200rpx;
+  border: 5rpx;
+  font-size:130rpx;
+  background: lightgreen;
+  color:blanchedalmond;
+}
+.button_acticle{
+  border: 0;
+  padding: 0;
+  z-index: 100;
+}
+.divLine{
+  background: #E0E3DA;
+  width: 100%;
+  height: 5rpx;
+ }
+.van-card{
+  height: 10%;
+}
+
+.van-button{
+  z-index: 300;
+  position: relative;
+}
+.title-class{
+  font-size: 50rpx;
+}
+.desc-class{
+  font-size: 30rpx;
+}
+.homework{
+  font-size: 50rpx;
+  font-weight: 600;
+}
+.shownone{
+  margin-top: 50%;
+  font-size: 60rpx;
+}
+

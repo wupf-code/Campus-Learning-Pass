@@ -1,0 +1,41 @@
+/* pages/personal_favourite/personal_favourite.wxss */
+.noarticle{
+  display: flex;
+  justify-content: center;
+  margin-top: 60%;
+  font-size: 80rpx;
+}
+.view_toregister{
+  display: flex;
+  justify-content: center;
+  margin-top: 50%;
+  font-size: 60rpx;
+}
+.button_toregister{
+  margin-top: 10%;
+  width: 30%;
+}
+.divLine{
+  background: #E0E3DA;
+  width: 100%;
+  height: 5rpx;
+ }
+.title-class{
+  width: 100%;
+  font-size: 50rpx;
+}
+.desc-class{
+  font-size: 30rpx;
+  left: 5rpx;
+  display: inline-flex;
+}
+.button_acticle{
+  border: 0;
+  padding: 0;
+}
+.controldistance{
+  margin-bottom: 20%;
+}
+.articleshow{
+  left: 5rpx;
+}

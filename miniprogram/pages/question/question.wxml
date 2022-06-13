@@ -1,0 +1,62 @@
+<!--pages/question/question.wxml-->
+<scroll-view class="scroll-view">
+  <image src="{{profile_url}}" class="profile-class"/>
+  <text class="name-class">{{name}}</text>
+  <view class="question-id">
+    <text>
+      问题码:
+      {{questionid}}
+    </text>
+  </view>
+
+  <view user-select="text" decode="{{true}}" class="question-class"><text>{{question}}</text></view>
+
+  <view wx:if="{{photo_url.length>0}}">
+    <swiper style="height:{{Height}}" easing-function="linear" class="swiper" autoplay indicator-dots="true" indicator-active-color="#BBBBBB" indicator-color="#E6E6E6" circular interval="5000">
+      <view wx:for-items="{{photo_url}}" wx:for-item="item" wx:key="key">
+      <swiper-item><image bindload="imgHeight" bindtap="lookimage" data-item="{{item}}"  mode="widthFix" class="swiper-item" src="{{item}}"/></swiper-item>
+      </view>
+    </swiper>
+  </view>
+
+  <view class="view">全部评论(共{{comment.length}}条)</view>
+  <view wx:if="{{comment.length==0}}" class="nocomment">暂时还没有评论，快来评论吧</view>
+  <view wx:else>
+    <view wx:for-items="{{comment}}" wx:for-item="item" wx:key="key" wx:for-index="index">
+      <image src="{{commentuser[index][0]}}"class="profile-class"/>
+      <text class="name-class">{{commentuser[index][1]}}#{{index+1}}楼</text>
+      <view class="content-class"><text>\n\n{{item.question}}\n</text></view>
+      <view wx:if="{{item.photo_url.length>0}}">
+        <view wx:for-items="{{item.photo_url}}" wx:for-item="item1" wx:key="key" wx:for-index="index1" class="showcommentimage">
+          <image src="{{item1}}" bindtap="lookimage_" mode="heightFix" class="commentimage" data-item="{{item}}"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <button bindtap="showInput" class="commentbutton"><image class="commentimage_" src="cloud://cloud1-9gfintjc7bd624b3.636c-cloud1-9gfintjc7bd624b3-1305383038/image/comment.jpg"></image>评论</button>
+
+  <!-- 输入框及发送按钮,模拟类似 朋友圈点击评论样式 -->
+  <view class="input-section"  wx:if="{{showInput}}">
+    <input class='input_input' maxlength="100" focus="auto" placeholder="评论" bindinput='bindInputMsg' confirm-type="send" bindconfirm="uploadcomment"></input>
+    <view wx:if="{{commentphoto.length==0}}">
+      <button class="chooseimage_btn" bindtap="chooseimage"><image class="chooseimage"  src="cloud://cloud1-9gfintjc7bd624b3.636c-cloud1-9gfintjc7bd624b3-1305383038/image/image.jpg"></image></button>
+    </view>
+    <view wx:if="{{commentphoto.length==1}}">
+      <button class="chooseimage_btn" bindtap="chooseimage"><image class="chooseimage"  src="cloud://cloud1-9gfintjc7bd624b3.636c-cloud1-9gfintjc7bd624b3-1305383038/image/image_1.jpg"></image></button>
+    </view>
+    <view wx:if="{{commentphoto.length==2}}">
+      <button class="chooseimage_btn" bindtap="chooseimage"><image class="chooseimage"  src="cloud://cloud1-9gfintjc7bd624b3.636c-cloud1-9gfintjc7bd624b3-1305383038/image/image_2.jpg"></image></button>
+    </view>
+    <button class="send_btn" type="primary" bindtap="uploadcomment">发送</button>
+  </view>
+
+  <dialog id='dialog'
+        title='授权' 
+        content='请先授权登录'
+        cancelText='取消' 
+        confirm='去授权' 
+        isShown="{{isShown}}"
+        bind:cancelEvent="closedialog" 
+        bind:confirmEvent="shouquan"/>
+</scroll-view>

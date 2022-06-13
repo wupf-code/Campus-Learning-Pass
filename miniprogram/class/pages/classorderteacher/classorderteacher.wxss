@@ -1,0 +1,18 @@
+/* class/pages/classorderteacher/classorderteacher.wxss */
+page{
+  align-items: center;
+}
+.stoporder{
+  margin-top: 400rpx;
+  width: 500rpx;
+  height: 500rpx;
+  border-radius: 300rpx;
+  justify-self: center;
+  font-size: 100rpx;
+  font-weight: bold;
+  line-height: 480rpx;
+}
+.showsecond{
+  margin-top: 100rpx;
+  font-size: 50rpx;
+}

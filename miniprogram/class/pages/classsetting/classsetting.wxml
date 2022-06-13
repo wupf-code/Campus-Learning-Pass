@@ -1,0 +1,95 @@
+<!--class/pages/classsetting/classsetting.wxml-->
+<view class="title">成员列表</view>
+<view class="title_">groupid  {{groupid}}</view>
+
+<view wx:if="{{mytype=='成员'}}">
+  <view wx:for-items="{{groupmember}}" wx:for-item="item" wx:key="item" class="showmembername">
+    <image class="memberprofile" src="{{item.memberprofile}}"></image>
+    <text>{{nickname[index]}}</text>
+    <view class="membertype">{{item.membertype}}</view>
+  </view>
+</view>
+
+<view wx:if="{{mytype=='管理员'}}">
+  <view wx:for-items="{{groupmember}}" wx:for-item="item" wx:key="item" class="showmembername">
+    <image class="memberprofile" src="{{item.memberprofile}}"></image>
+    <text>{{nickname[index]}}</text>
+    <view class="membertype">{{item.membertype}}</view>
+    <view wx:if="{{item.membertype=='成员'}}" class="showmembername_">
+      <button class="changename" bindtap="showinputname" data-user="{{item.memberid}}">修改班级昵称</button>
+      <button type="warn" bindtap="removefromclass" data-user="{{item.memberid}}">移出班级</button>
+    </view>
+  </view>
+</view>
+
+<view wx:if="{{mytype=='群主'}}">
+  <view wx:for-items="{{groupmember}}" wx:for-item="item" wx:key="item" class="showmembername__">
+    <image class="memberprofile" src="{{item.memberprofile}}"></image>
+    <text>{{nickname[index]}}</text>
+    <view class="membertype">{{item.membertype}}</view>
+    <view wx:if="{{item.membertype=='群主'}}">
+      <button type="primary" bindtap="changeowner" data-user="{{item.memberid}}">转让班级</button>
+      <button type="warn" bindtap="dissolveGroup" data-user="{{item.memberid}}">解散班级</button>
+    </view>
+    <view wx:if="{{item.membertype=='成员'}}">
+      <button class="changename" bindtap="showinputname" data-user="{{item.memberid}}">修改班级昵称</button>
+      <button type="primary" bindtap="setasmanager" data-user="{{item.memberid}}">设为管理员</button>
+      <button type="warn" bindtap="removefromclass" data-user="{{item.memberid}}">移出班级</button>
+    </view>
+    <view wx:if="{{item.membertype=='管理员'}}">
+      <button class="changename" bindtap="showinputname" data-user="{{item.memberid}}">修改班级昵称</button>
+      <button type="primary" bindtap="cancelmanager" data-user="{{item.memberid}}">取消管理员</button>
+      <button type="warn" bindtap="removefromclass" data-user="{{item.memberid}}">移出班级</button>
+    </view>
+  </view>
+</view>
+
+<button bindtap="showinputname" data-user="{{myid}}" class="button" type="default" plain="true">修改我的昵称</button>
+<!--邀请成员-->
+<view wx:if="{{mytype!='成员'}}">
+  <button bindtap="tochagegroupinfo" class="button" type="default" plain="true">修改班级信息</button>
+  <button bindtap="formclasscode" class="button" type="default" plain="true">生成班级邀请码</button>
+</view>
+
+
+<!--退出班级-->
+<view wx:if="{{mytype!='群主'}}">
+  <button class="exitclass" type="warn">退出群聊</button>
+</view>
+
+<van-dialog
+  use-slot
+  show="{{ showmycode }}"
+  confirm-button-text="取消"
+  confirm-button-color="#B3B3B3"
+  bind:close="removeclasscode">
+  <view>等待加入中.....班级邀请码是</view>
+  <view class="showclasscode">{{classcode}}</view>
+</van-dialog>
+
+<van-dialog
+  use-slot
+  show-cancel-button
+  show="{{ showinputnamedialog }}"
+  confirm-button-text="确定"
+  cancel-button-text="取消"
+  confirm-button-color="#08D631"
+  cancel-button-color="#D5D5D5"
+  bind:confirm="changegroupmembername"
+  bind:cancel="closeinput">
+  <view>请输入修改后的群昵称</view>
+  <input value="{{choosenickname}}" bindinput="inputnickname" class="inputnickname" maxlength="10"/>
+</van-dialog>
+
+<van-dialog
+  use-slot
+  show="{{ showchangeowner }}"
+  confirm-button-text="取消"
+  confirm-button-color="#D5D5D5">
+  <view>请输入要转让的成员</view>
+ <view wx:for-items="{{nickname}}" wx:for-item="item" wx:key="item" wx:for-index="index">
+   <view wx:if="{{groupmember[index].memberid!=myid}}">
+    <button bindtap="changegroupowner" data-memberindex="{{index}}" class="dialogbtn">{{item}}</button>
+    </view>
+ </view>
+</van-dialog>

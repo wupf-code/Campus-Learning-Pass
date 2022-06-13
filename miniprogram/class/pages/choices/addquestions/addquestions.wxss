@@ -1,0 +1,19 @@
+/* class/pages/choices/addquestions/addquestions.wxss */
+.view{
+  font-size: 60rpx;
+  margin-top: 50rpx;
+}
+.input{
+  margin: 20rpx;
+  width: auto;
+  background-color: rgb(204,204,204);
+  font-size: 50rpx;
+  height: auto;
+}
+.picker{
+  font-size: 50rpx;
+}
+.button{
+  margin-top: 50rpx;
+  width: 80%;
+}

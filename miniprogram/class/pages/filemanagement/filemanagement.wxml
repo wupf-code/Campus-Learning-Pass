@@ -1,0 +1,33 @@
+<!--class/pages/filemanagement/filemanagement.wxml-->
+<view class="title">
+  <view class="titletext">班级文件</view>
+</view>
+<view wx:if="{{filelist.length!=0}}" class="showfile">
+  <view wx:for-items="{{filelist}}" wx:for-item="item" wx:key="item">
+    <button class="choosefile" bindtap="showdownloadfile" data-file="{{item}}">
+      <text class="showfilestyle">{{item.filename}}</text>
+      <text class="showfilestyle">{{item.uploadtime}}</text>
+      <text class="showfilestyle">{{item.uploader}}</text>
+    </button>
+    <view class="divLine"/>
+  </view>
+</view>
+<view wx:else class="nofile">
+  <view>暂时没有已上传的文件</view>
+</view>
+<button bindtap="deletefile" type="warn" class="deletefile">删除文件</button>
+<button bindtap="uploadfile" type="primary" class="uploadfile">上传文件</button>
+
+<van-dialog
+  use-slot
+  show-cancel-button
+  show="{{ showdialog }}"
+  cancel-button-text="取消"
+  confirm-button-text="下载"
+  cancel-button-color="#B3B3B3"
+  confirm-button-color="#4EFF22"
+  bind:confirm="downloadfile">
+  <view >文件名  {{choosefile.filename}}</view>
+  <view >上传时间  {{choosefile.uploadtime}}</view>
+  <view >上传者  {{choosefile.uploader}}</view>
+</van-dialog>

@@ -1,0 +1,10 @@
+<!--class/pages/classorderstudent/classorderstudent.wxml-->
+<view wx:if="{{beginorder==1}}">
+  <button bindtap="order" type="primary" class="order">签到</button>
+</view>
+<view wx:if="{{beginorder==-1}}">
+  <view class="noorder">点名未开始或已结束</view>
+</view>
+<view wx:if="{{beginorder==0}}">
+  <button bindtap="order" disabled="true" type="primary" class="order">已签到</button>
+</view>

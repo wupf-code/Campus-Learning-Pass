@@ -1,0 +1,156 @@
+<!--miniprogram/class/pages/homework/homework.wxml-->
+<!--学生作业界面-->
+<block wx:if="{{mytype=='成员'||mytype=='管理员'}}">
+  <tabs tabs="{{tabs}}" bind:tabsitemchange="handletabsitemchange">
+    <!--判断待完成作业页面-->
+    <block wx:if="{{tabs[0].isactive}}">
+      <view class="shownone" wx:if="{{duploadcards.length==0}}">
+        当前老师还没有布置新作业哦
+      </view>
+      <wx:else>
+      <view wx:for-items="{{duploadcards}}" wx:for-item="item" wx:key="key">
+        <!--如果文件不存在-->
+        <view wx:if="{{item.length==0}}"></view>
+        <!--如果文件里不包含图片路径-->
+        <view wx:elif="{{item.photo_url.length==0}}">
+          <button bindtap="toanswer" data-item="{{item.homework_id}}" class="button_acticle">
+            <van-card
+              thumb="cloud://cloud1-9gfintjc7bd624b3.636c-cloud1-9gfintjc7bd624b3-1305383038/image/default_article_image.jpg"
+              thumb-mode="scaleToFill" desc="{{item.words}}" tag="{{item.status}}" title="{{item.time}}"
+              title-class="title-class" desc-class="desc-class">
+            </van-card>
+          </button>
+          <view class="divLine" />
+        </view>
+        <!--如果文件有图片路径-->
+        <view wx:else>
+          <button bindtap="toanswer" data-item="{{item.homework_id}}" class="button_acticle">
+            <van-card thumb="{{item.photo_url[0]}}" thumb-mode="scaleToFill" tag="{{item.status}}" desc="{{item.words}}"
+              title="{{item.time}}" title-class="title-class" desc-class="desc-class">
+            </van-card>
+            <view class="divLine" />
+          </button>
+        </view>
+      </view>
+      </wx:else>
+    </block>
+    <!-- 判断未批改页面 -->
+    <block wx:elif="{{tabs[1].isactive}}">
+      <view class="shownone" wx:if="{{wpg.length==0}}">
+        当前还没有未批改作业哦
+      </view>
+      <view wx:else>
+      <view wx:for-items="{{wpg}}" wx:for-item="item" wx:for-index="index" wx:key="key">
+        <!--如果文件不存在-->
+        <view wx:if="{{item.length==0}}"></view>
+        <!--如果文件里不包含图片路径-->
+        <view wx:elif="{{item.qphoto_url.length==0}}">
+          <button bindtap="toanswer3" data-item="{{item.answer_id}}" class="button_acticle">
+            <van-card
+              thumb="cloud://cloud1-9gfintjc7bd624b3.636c-cloud1-9gfintjc7bd624b3-1305383038/image/default_article_image.jpg"
+              thumb-mode="scaleToFill" desc="{{item.homcontent}}" tag="{{item.status}}" title="{{item.time}}"
+              title-class="title-class" desc-class="desc-class">
+            </van-card>
+          </button>
+          <view class="divLine" />
+        </view>
+        <!--如果文件有图片路径-->
+        <view wx:else>
+          <button bindtap="toanswer3" data-item="{{item.answer_id}}" class="button_acticle">
+            <van-card thumb="{{item.qphoto_url[0]}}" thumb-mode="scaleToFill" tag="{{item.status}}"
+              desc="{{item.homcontent}}" title="{{item.time}}" title-class="title-class" desc-class="desc-class">
+            </van-card>
+            <view class="divLine" />
+          </button>
+        </view>
+      </view>
+      </view>
+    </block>
+    <!--判断已完成页面 已批改页面-->
+    <block wx:elif="{{tabs[2].isactive}}">
+      <view class="shownone" wx:if="{{ypg.length==0}}">
+        当前还没有批改作业
+      </view>
+      <view wx:for-items="{{ypg}}" wx:for-item="item" wx:for-index="index" wx:key="key">
+        <!--如果文件不存在-->
+        <view wx:if="{{item.length==0}}"></view>
+        <!--如果文件里不包含图片路径-->
+        <view wx:elif="{{item.qphoto_url.length==0}}">
+          <button bindtap="topigai2" data-item="{{item.answer_id}}" class="button_acticle">
+            <van-card
+              thumb="cloud://cloud1-9gfintjc7bd624b3.636c-cloud1-9gfintjc7bd624b3-1305383038/image/default_article_image.jpg"
+              thumb-mode="scaleToFill" desc="{{item.homcontent}}" tag="{{item.status}}" title="{{item.time}}"
+              title-class="title-class" desc-class="desc-class">
+            </van-card>
+          </button>
+          <view class="divLine" />
+        </view>
+        <!--如果文件有图片路径-->
+        <view wx:else>
+          <button bindtap="topigai2" data-item="{{item.answer_id}}" class="button_acticle">
+            <van-card thumb="{{item.qphoto_url[0]}}" thumb-mode="scaleToFill" tag="{{item.status}}"
+              desc="{{item.homcontent}}" title="{{item.time}}" title-class="title-class" desc-class="desc-class">
+            </van-card>
+            <view class="divLine" />
+          </button>
+        </view>
+      </view>
+    </block>
+    <!-- 判断作业统计界面 -->
+    <block wx:elif="{{tabs[3].isactive}}">
+      <view wx:if="{{qjcount>0}}">
+        <text>
+          缺交份数：{{qjcount}}份 赶快去完成吧!
+        </text>
+      </view>
+
+      <view wx:else>
+        <text>
+          缺交份数：{{qjcount}}份 恭喜你 作业已全部完成！
+        </text>
+      </view>
+
+    </block>
+  </tabs>
+</block>
+
+
+<!--老师作业界面-->
+<block wx:elif="{{mytype=='群主'}}">
+  <scroll-view>
+    <view class="shownone" wx:if="{{uploadcards3.length==0}}">
+      您还未布置作业，赶紧点击加号布置作业吧！
+    </view>
+    <view wx:else>
+      <view class="homework">
+        我布置的作业
+      </view>
+      <view wx:for-items="{{uploadcards3}}" wx:for-item="item" wx:key="key">
+        <!--如果文件不存在-->
+        <view wx:if="{{item.length==0}}"></view>
+        <!--如果文件里不包含图片路径-->
+        <view wx:elif="{{item.photo_url.length==0}}">
+          <button bindtap="toup" data-item="{{item.homework_id}}" class="button_acticle">
+            <van-card
+              thumb="cloud://cloud1-9gfintjc7bd624b3.636c-cloud1-9gfintjc7bd624b3-1305383038/image/default_article_image.jpg"
+              thumb-mode="scaleToFill" desc="{{item.words}}" title="{{item.time}}" tag="{{item.status}}"
+              title-class="title-class" desc-class="desc-class">
+            </van-card>
+          </button>
+          <view class="divLine" />
+        </view>
+        <!--如果文件有图片路径-->
+        <view wx:else>
+          <button bindtap="toup" data-item="{{item.homework_id}}" class="button_acticle">
+            <van-card thumb="{{item.photo_url[0]}}" thumb-mode="scaleToFill" desc="{{item.words}}" title="{{item.time}}"
+              title-class="title-class" desc-class="desc-class" tag="{{item.status}}">
+            </van-card>
+            <view class="divLine" />
+          </button>
+        </view>
+
+      </view>
+    </view>
+    <button hover-class="addbtn_" bindtap="toaddhomework" class="addbtn">十</button>
+  </scroll-view>
+</block>

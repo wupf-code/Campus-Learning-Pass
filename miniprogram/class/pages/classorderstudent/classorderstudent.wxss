@@ -1,0 +1,20 @@
+/* class/pages/classorderstudent/classorderstudent.wxss */
+page{
+  align-items: center;
+}
+.order{
+  margin-top: 400rpx;
+  width: 500rpx;
+  height: 500rpx;
+  border-radius: 300rpx;
+  justify-self: center;
+  font-size: 100rpx;
+  font-weight: bold;
+  line-height: 480rpx;
+}
+.noorder{
+  display: flex;
+  justify-content: center;
+  margin-top: 60%;
+  font-size: 80rpx;
+}

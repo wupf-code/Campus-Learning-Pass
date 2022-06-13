@@ -1,0 +1,53 @@
+<!--class/pages/joinclass/joinclass.wxml-->
+<view>
+     <view>
+        <view class="weui-search-bar">
+            <view class="weui-search-bar__form">
+            <!-- 搜索框 -->
+                <view class="weui-search-bar__box">
+                    <icon class="weui-icon-search_in-box" type="search" size="16"></icon>
+                    <input type="text" class="weui-search-bar__input" bindinput="inputclassnum" bindconfirm="search" confirm-type="search" placeholder="请输入要加入的班级编号"/>
+                </view>
+            </view>
+            <!-- 搜索按钮,调用搜索查询方法 -->
+            <button bindtap="search"><view class="weui-search-bar__cancel-btn">搜索</view></button>
+        </view>
+    </view>
+</view>
+<view wx:if="{{havefound==-1}}" class="noclass">
+  请输入搜索内容
+</view>
+<view wx:if="{{havefound==0}}" class="noclass">
+  未查询到相关结果
+</view>
+<view wx:if="{{havefound==2}}" class="noclass">
+  该班级已隐藏信息
+</view>
+<view wx:if="{{havefound==1}}">
+  <scroll-view class="showclass" scroll-y="true">
+    <view class="showclassinfo_">班级ID               {{classinfo.id}}</view>
+    <view class="showclassinfo">班级名称             {{classinfo.name}}</view>
+    <view class="showclassinfo">班级描述             {{classinfo.description}}</view>
+    <view class="showclassinfo"> 当前人数            {{classinfo.affiliations.length}}/200</view>
+  </scroll-view>
+  <view wx:if="{{classinfo.affiliations.length==200}}">
+    <button class="joinclass" type="default" plain="true" disabled="true">班级人数已满</button>
+  </view>
+  <view wx:else>
+    <button class="joinclass" type="default" plain="true" bindtap="joinclass">加入班级</button>
+  </view>
+</view>
+
+<view class="divLine"/>
+<view class="title">找不到想进的班级？试试这个↓</view>
+<button bindtap="inputclasscode" class="inputclasscode" type="default" plain="true">输入班级邀请码</button>
+
+<van-dialog
+  use-slot
+  show-cancel-button
+  title="输入班级邀请码"
+  show="{{showinputcode}}"
+  bind:confirm="useclasscode"
+  bind:cancel="CloseDialog1">
+  <input value="{{classcode}}" bindinput="inputclasscode_" class="inputmembercode" maxlength="10"/>
+</van-dialog>

@@ -1,0 +1,44 @@
+/* pages/addSubject/addSubject.wxss */
+.btn{
+    position: relative;
+    box-sizing: border-box;
+    color:rgb(17, 134, 17);
+    font-size:larger;
+    font-weight: bold;
+  }
+  .title{
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    color: mediumblue;
+    font-size:larger;
+    font-weight: bolder;
+  }
+  .btn2{
+    position: relative;
+    box-sizing: border-box;
+    color:rgb(103, 126, 103);
+    font-size:medium;
+    font-style:italic;
+  }
+  .skzhoushu{
+    position: relative;
+    box-sizing: border-box;
+    color:rgb(27, 10, 46);
+    font-size:larger;
+    font-weight: bolder;
+  }
+  .submit{
+    margin-left: 10px;
+    line-height: 28px;
+    color: #2768bd;
+    white-space: nowrap;
+    font-size:larger;
+    font-weight: bolder;
+  }
+  .input{
+    border:1px solid #ddd;
+    width: 100%;
+    height: 30px;
+    border-radius: 10px;
+  }

@@ -1,0 +1,50 @@
+/* class/pages/filemanagement/filemanagement.wxss */
+page{
+  align-items: center
+}
+.title{
+  width: 100%;
+  height: 150rpx;
+  background-color: rgb(204,204,204);
+}
+.titletext{
+  margin-left: 30%;
+  margin-top: 20rpx;
+  color: white;
+  font-size: 70rpx;
+}
+.uploadfile{
+  width: 200rpx;
+  height: 100rpx;
+  padding: 0rpx;
+  bottom:50rpx;
+  right: 50rpx;
+  position: fixed;
+}
+.deletefile{
+  width: 200rpx;
+  height: 100rpx;
+  padding: 0rpx;
+  bottom:50rpx;
+  left: 50rpx;
+  position: fixed;
+}
+.showfile{
+  width: 100%;
+  margin-top: 10rpx;
+  margin-bottom: 100rpx;
+}
+.choosefile{
+  display: inline-block;
+  width: 100%;
+}
+.nofile{
+  margin-top: 50%;
+  font-size: 60rpx;
+  color: #C4C4C4;
+}
+.divLine{
+  background: #E0E3DA;
+  width: 100%;
+  height: 5rpx;
+ }

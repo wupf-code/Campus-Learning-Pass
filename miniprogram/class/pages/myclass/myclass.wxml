@@ -1,0 +1,7 @@
+<!--class/pages/myclass/myclass.wxml-->
+<view class="title">我的班级</view>
+<button wx:if="{{havenewmeassage}}" class="message" bindtap="tomessage"><image class="message_" mode="scaleToFill" src="cloud://cloud1-9gfintjc7bd624b3.636c-cloud1-9gfintjc7bd624b3-1305383038/image/havemessages.png"></image></button>
+<button wx:else class="message" bindtap="tomessage"><image class="message_" mode="scaleToFill" src="cloud://cloud1-9gfintjc7bd624b3.636c-cloud1-9gfintjc7bd624b3-1305383038/image/messages.png"></image></button>
+<view wx:for-items="{{groups}}" wx:for-item="item" wx:key="key">
+  <button class="groups" data-item="{{item}}" bindtap="choosegroup">{{item.groupname}}</button>
+</view>

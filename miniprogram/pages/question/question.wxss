@@ -1,0 +1,133 @@
+/* pages/question/question.wxss */
+.scroll-view{
+  margin-bottom:10%
+}
+.profile-class {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 150%;
+  position: relative;
+  left: 50rpx;
+  top: 50rpx;
+}
+.swiper-item{
+  margin-left: 4%;
+  margin-right: 4%;
+  width: 92%;
+}
+
+.name-class {
+  font-size: 40rpx;
+  position: relative;
+  left: 80rpx;
+  top: 20rpx;
+}
+.content-class{
+  word-break: break-all;
+  word-wrap: break-word;
+  white-space:normal;
+  margin-left: 50rpx;
+  margin-right: 50rpx;
+  font-size: 35rpx;
+}
+
+.showcommentimage{
+  display: inline;
+}
+.commentimage{
+  margin-top: 30rpx;
+  margin-left: 50rpx;
+}
+.commentimage_{
+  float: left; 
+  width: 50%;
+  height: 100rpx;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+.question-class{
+  word-break: break-all;
+  word-wrap: break-word;
+  white-space:normal;
+  margin-left: 50rpx;
+  margin-right: 50rpx;
+  margin-top: 100rpx;
+  margin-bottom: 50rpx;
+  font-size: 50rpx;
+}
+
+.swiper{
+  margin-top: 50rpx;
+}
+
+.question-id{
+  position: absolute;
+  right:30rpx;
+  top:30rpx;
+}
+
+.view{
+  font-size: 50rpx;
+  margin-left: 50rpx;
+}
+
+.nocomment{
+  font-size: 50rpx;
+  margin-top: 50rpx;
+  margin-left: 45rpx;
+}
+
+.commentbutton{
+  margin-top: 100rpx;
+  width: 30%;
+  height: 120rpx;
+  font-size: 50rpx;
+  padding: 0rpx;
+  border: 5rpx solid black;
+  border-radius: 20%;
+}
+.commentimage{
+  width: 100rpx;
+  height: 100rpx;
+}
+
+/*点击评论触发键盘输入的input样式 */
+.input-section {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  height: 110rpx;
+  bottom: 0rpx;
+  left: 0rpx;
+  right: 0rpx;
+  z-index: 500;
+  background: #f2f2f2;
+}
+
+.input_input {
+  background: #fff;
+  margin-left: 12rpx;
+  z-index: 500;
+  width: 50%;
+  height: 94rpx;
+  padding-left: 35rpx;
+  font-size: 30rpx;
+  border-radius: 6rpx
+}
+
+.send_btn {
+  width: auto;
+  z-index: 600;
+}
+.chooseimage{
+  display: flex;
+  height: 94rpx;
+  width: 94rpx;
+  z-index: 600;
+  margin: 0rpx;
+}
+.chooseimage_btn{
+  padding: 0rpx;
+  z-index: 600;
+}

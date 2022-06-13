@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "van-overlay": "@vant/weapp/overlay/index",
+    "van-dialog": "@vant/weapp/dialog/index"
+  }
+}

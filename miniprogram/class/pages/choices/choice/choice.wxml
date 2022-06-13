@@ -1,0 +1,18 @@
+<!--class/pages/choices/choice/choice.wxml-->
+<view class="title">全部作业</view>
+<view wx:if="{{questions.length==0}}" class="shownone">
+  暂时还没有题目
+</view>
+<view wx:else>
+  <view wx:for-items="{{questions}}" wx:for-item="item"class="view_showquestions">
+    <button class="showquestions" bindtap="tohomework" data-qs="{{item}}">
+      <text class="showtitle">{{item.title}}</text>
+      <text class="showtime">{{item.date}}</text>
+    </button>
+    <view class="divLine"/>
+  </view>
+</view>
+
+<view wx:if="{{mytype=='owner'}}">
+  <button hover-class="addbtn_" bindtap="addquestion" class="addbtn">十</button>
+</view>

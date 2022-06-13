@@ -1,0 +1,21 @@
+/* class/pages/choices/choicehomework_student_prepare/choicehomework_student_prepare.wxss */
+page{
+  align-items: center;
+}
+.view{
+  font-size: 60rpx;
+  margin-top: 100rpx;
+}
+.view_{
+  font-size: 60rpx;
+  margin-top: 100rpx;
+  margin-left: 10%;
+}
+.button{
+  margin-top: 200rpx;
+  width: 80%;
+  padding: 0rpx;
+}
+.button_{
+  width: 100%;
+}

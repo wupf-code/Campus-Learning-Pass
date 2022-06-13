@@ -1,0 +1,55 @@
+<!--class/pages/choices/addchoices/addchoices.wxml-->
+<view class="view">第{{index}}题</view>
+
+<radio-group
+  bindchange="changequestiontype"
+  direction="horizontal">
+  <radio value='1' checked="{{questiontype=='1'}}">选择题</radio>
+  <radio value='0' checked="{{questiontype=='0'}}">判断题</radio>
+</radio-group>
+
+<view class="view">请输入题干</view>
+<textarea bindinput="addquestiontitle" value="{{questiontitle}}" class="questiontitle" placeholder="请输入题干" class="input_" maxlength="50"/>
+<view class="showchoices" wx:if="{{questiontype=='1'}}">
+  <van-checkbox-group value="{{choice}}" bindchange="changechoices">
+    <van-checkbox checked-color="#00CC00" name="A" value='{{}}'>
+        A<input bindinput="addchoicecontent" value="{{Acontent}}" placeholder="请输入选项内容" class="input" data-name="A"  maxlength="20"/>
+    </van-checkbox>
+    <van-checkbox checked-color="#00CC00" name="B" value='{{}}'>
+        B<input bindinput="addchoicecontent" value="{{Bcontent}}" placeholder="请输入选项内容" class="input" data-name="B"  maxlength="20"/>
+    </van-checkbox>
+    <van-checkbox checked-color="#00CC00" name="C" value='{{}}'>
+        C<input bindinput="addchoicecontent" value="{{Ccontent}}" placeholder="请输入选项内容" class="input" data-name="C"  maxlength="20"/>
+    </van-checkbox>
+    <van-checkbox checked-color="#00CC00" name="D" value='{{}}'>
+        D<input bindinput="addchoicecontent" value="{{Dcontent}}" placeholder="请输入选项内容" class="input" data-name="D" maxlength="20"/>
+    </van-checkbox>
+  </van-checkbox-group>
+</view>
+<view wx:else>
+  <radio-group
+    bindchange="changejudge"
+    direction="horizontal">
+    <radio value='1' checked="{{judge=='1'}}">对</radio>
+    <radio value='0' checked="{{judge=='0'}}">错</radio>
+  </radio-group>
+</view>
+
+<view wx:if="{{num!=1}}">
+  <view wx:if="{{index>1&&index<num}}">
+    <button bindtap="lastquestion" class="bottombutton" type="primary">上一题</button>
+    <button bindtap="nextquestion" class="bottombutton_" type="primary">下一题</button>
+  </view>
+  <view wx:if="{{index==num}}">
+    <button bindtap="lastquestion" class="bottombutton" type="primary">上一题</button>
+    <button bindtap="submit" class="bottombutton_" type="primary">提交</button>
+  </view>
+  <view wx:if="{{index==1}}">
+    <button disabled="true" bindtap="lastquestion" class="bottombutton" type="primary">上一题</button>
+    <button bindtap="nextquestion" class="bottombutton_" type="primary">下一题</button>
+  </view>
+</view>
+<view wx:if="{{num==1}}">
+  <button disabled="true" bindtap="lastquestion" class="bottombutton" type="primary">上一题</button>
+  <button bindtap="submit" class="bottombutton_" type="primary">提交</button>
+</view>

@@ -1,0 +1,15 @@
+<!--pages/personal/personal.wxml-->
+<block wx:if="{{!hasUserInfo}}">
+    <image bindtap="getUserProfile" class="image_profile_icon" src="cloud://cloud1-9gfintjc7bd624b3.636c-cloud1-9gfintjc7bd624b3-1305383038/image/not_register.jpg"></image>
+    <button class="button_register"  bindtap="getUserProfile"> 获取头像昵称 </button>
+</block>
+<block wx:else>
+    <image class="image_profile_icon" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+    <text class="button_register">{{userInfo.nickName}}</text>
+</block>
+
+<button class="button_setting" bindtap="topersonalinformation"><image class="image_setting_icon" src="cloud://cloud1-9gfintjc7bd624b3.636c-cloud1-9gfintjc7bd624b3-1305383038/image/personal_information.jpg"></image><text class="text_setting">个人信息</text></button>
+<button class="button_setting" bindtap="topersonalfavourite"><image class="image_setting_icon" src="cloud://cloud1-9gfintjc7bd624b3.636c-cloud1-9gfintjc7bd624b3-1305383038/image/personal_favourite.jpg"></image><text class="text_setting">我的收藏</text></button>
+<button class="button_setting" bindtap="topersonalarticle"><image class="image_setting_icon" src="cloud://cloud1-9gfintjc7bd624b3.636c-cloud1-9gfintjc7bd624b3-1305383038/image/personal_article.jpg"></image><text class="text_setting"> 我的作品</text></button>
+<button class="button_setting" bindtap="topersonalQandA"><image class="image_setting_icon" src="cloud://cloud1-9gfintjc7bd624b3.636c-cloud1-9gfintjc7bd624b3-1305383038/image/personal_Q&A.jpg"></image><text class="text_setting"> 我的问答</text></button>
+<button class="button_setting" bindtap="topersonalsetting"><image class="image_setting_icon" src="cloud://cloud1-9gfintjc7bd624b3.636c-cloud1-9gfintjc7bd624b3-1305383038/image/personal_setting.jpg"></image><text class="text_setting"> 设置</text></button>

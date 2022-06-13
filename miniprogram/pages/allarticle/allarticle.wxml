@@ -1,0 +1,52 @@
+<!--pages/allarticle/allarticle.wxml-->
+<view>
+     <view>
+        <view class="weui-search-bar">
+            <view class="weui-search-bar__form">
+            <!-- 搜索框 -->
+                <view class="weui-search-bar__box">
+                    <icon class="weui-icon-search_in-box" type="search" size="16"></icon>
+                    <input type="text" class="weui-search-bar__input" bindinput="input" bindconfirm="search" confirm-type="search" placeholder="请输入文章码或标题查找"/>
+                </view>
+            </view>
+            <!-- 搜索按钮,调用搜索查询方法 -->
+            <button bindtap="search"><view class="weui-search-bar__cancel-btn">搜索</view></button>
+        </view>
+    </view>
+</view>
+
+<view wx:if="{{article.length!=0}}">
+    <view wx:for-items="{{article}}" wx:for-item="item" wx:key="key" class="articleshow">
+        <view wx:if="{{item.photo_url==''}}">
+            <button bindtap="selectarticle" data-item="{{item}}" class="button_acticle">
+                <van-card
+                data-item="{{item}}"
+                thumb="cloud://cloud1-9gfintjc7bd624b3.636c-cloud1-9gfintjc7bd624b3-1305383038/image/default_article_image.jpg"
+                thumb-mode="scaleToFill"
+                desc="{{articlecontent[index]}}"
+                title="{{item.title}}"
+                title-class="title-class"
+                desc-class="desc-class">
+                </van-card>
+            </button>
+            <view class="divLine"/>
+        </view>
+    
+        <view wx:else>
+            <button bindtap="selectarticle" data-item="{{item}}" class="button_acticle">
+                <van-card
+                thumb="{{item.photo_url[0]}}"
+                thumb-mode="scaleToFill"
+                desc="{{articlecontent[index]}}"
+                title="{{item.title}}"
+                title-class="title-class"
+                desc-class="desc-class">      
+                </van-card>
+                <view class="divLine"/>
+            </button>
+        </view>
+    </view>
+</view>
+<view wx:else class="noarticle">
+    未查询到相关结果
+</view>

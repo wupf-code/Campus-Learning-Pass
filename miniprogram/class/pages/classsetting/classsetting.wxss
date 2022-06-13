@@ -1,0 +1,75 @@
+/* class/pages/classsetting/classsetting.wxss */
+page{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.title{
+  justify-self: center;
+  margin-top: 20rpx;
+  font-size: 50rpx;
+}
+.title_{
+  justify-self: center;
+  margin-top: 20rpx;
+  font-size: 30rpx;
+}
+.showmembername{
+  width: 600rpx;
+  height: 130rpx;
+  border: 3rpx solid;
+  border-radius: 10rpx;
+  margin-top: 50rpx;
+  font-size: 50rpx;
+}
+.showmembername_{
+  width: 600rpx;
+  height: 300rpx;
+  border: 3rpx solid;
+  border-radius: 10rpx;
+  margin-top: 150rpx;
+  font-size: 50rpx;
+}
+.showmembername__{
+  width: 600rpx;
+  height: 380rpx;
+  border: 3rpx solid;
+  border-radius: 10rpx;
+  margin-top: 150rpx;
+  font-size: 50rpx;
+}
+.memberprofile{
+	height: 100rpx;
+	width: 100rpx;
+	border-radius: 60rpx;
+}
+.membertype{
+  display: flex;
+  flex-direction: row-reverse;
+  font-size: 40rpx;
+}
+.exitclass{
+  width: 400rpx;
+  margin-top: 200rpx;
+}
+.button{
+  width: 600rpx;
+  position: relative;
+  margin-top: 70rpx;
+ }
+ .showclasscode{
+  width: 30%;
+  font-size: 70rpx;
+  margin-left: 35%;
+}
+.changename{
+  border: solid 1rpx;
+}
+.inputnickname{
+  margin-left: 10%;
+  width: 80%;
+  border: 3rpx solid;
+}
+.dialogbtn{
+  border-bottom: 1rpx solid;
+}

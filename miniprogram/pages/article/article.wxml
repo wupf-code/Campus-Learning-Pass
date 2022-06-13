@@ -1,0 +1,63 @@
+<!--pages/article/article.wxml-->
+<scroll-view class="scroll-view">
+  <image src="{{profile_url}}" class="profile-class"/>
+  <view class="article-id">
+    <text>
+      文章码:
+      {{articleid}}
+    </text>
+  </view>
+
+  <view class="name-class">
+    <text>
+    作者昵称:{{name}}
+    </text>
+  </view>
+
+  <view wx:if="{{photo_url.length>0}}">
+    <swiper easing-function="linear" class="swiper" autoplay indicator-dots="true" indicator-active-color="#BBBBBB" indicator-color="#E6E6E6" circular interval="5000">
+      <view wx:for-items="{{photo_url}}" wx:for-item="item" wx:key="key">
+      <swiper-item class="swiper-item"><image bindtap="lookimage" data-item="{{item}}"  mode="heightFix" src="{{item}}"/></swiper-item>
+      </view>
+    </swiper>
+  </view>
+
+  <view class="title-class">
+    {{title}}
+  </view>
+
+  <view>
+    <text user-select="text" decode="{{true}}">
+      {{words}}
+    </text>
+  </view>
+</scroll-view>
+<!--当前用户没有点赞过该文章 没有点赞过 则点赞 -->
+<button wx:if="{{hasdz==false}}" class="bottombutton_dz" bindtap="dz">
+  <!-- 注意比较这里点赞和没有点赞时显示的图片是不一样的！这样就会出现一个效果 没点赞之前是灰色图片 点完赞之后由于hasdz变为true 图片变为亮的图片 -->
+  <image class="bottomimage" mode="heightFix" src="cloud://cloud1-9gfintjc7bd624b3.636c-cloud1-9gfintjc7bd624b3-1305383038/image/article_notdz.jpg"></image>
+  <label class="label">{{dz_count}}</label>
+</button>
+<!-- <!--当前用户没有点赞过该文章 没有点赞过 则不用点赞 -->
+<button wx:else class="bottombutton_dz" bindtap="qxdz">
+  <image class="bottomimage" mode="heightFix" src="cloud://cloud1-9gfintjc7bd624b3.636c-cloud1-9gfintjc7bd624b3-1305383038/image/article_hasdz.jpg"></image>
+  <label class="label">{{dz_count}}</label>
+</button>
+
+<button wx:if="{{hassc==false}}" class="bottombutton_sc" bindtap="sc">
+  <image class="bottomimage" mode="heightFix" src="cloud://cloud1-9gfintjc7bd624b3.636c-cloud1-9gfintjc7bd624b3-1305383038/image/article_notsc.jpg"></image>
+  <label class="label">收藏</label>
+</button>
+<button wx:else class="bottombutton_sc"bindtap="qxsc">
+  <image class="bottomimage" mode="heightFix" src="cloud://cloud1-9gfintjc7bd624b3.636c-cloud1-9gfintjc7bd624b3-1305383038/image/article_hassc.jpg"></image>
+  <label class="label">已收藏</label>
+</button>
+
+<dialog id='dialog'
+        title='授权' 
+        content='请先授权登录'
+        cancelText='取消' 
+        confirm='去授权' 
+        isShown="{{isShown}}"
+        bind:cancelEvent="closedialog" 
+        bind:confirmEvent="shouquan"/>

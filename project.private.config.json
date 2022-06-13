@@ -1,0 +1,42 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "class/pages/createclass/createclass",
+          "pathName": "class/pages/createclass/createclass",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/timeable/timeable",
+          "pathName": "pages/timeable/timeable",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/addSubject/addSubject",
+          "pathName": "pages/addSubject/addSubject",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/initzhou/initzhou",
+          "pathName": "pages/initzhou/initzhou",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

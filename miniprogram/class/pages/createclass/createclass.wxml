@@ -1,0 +1,15 @@
+<!--class/pages/createclass/createclass.wxml-->
+<label class="view">班级名称</label>
+<input bindinput="addname" placeholder="请输入班级名称" class="input" maxlength="10"/>
+<view class="view" >班级简介</view>
+<textarea bindinput="adddesc" confirm-type="return" maxlength="100" auto-height class="input_" placeholder="请输入简介"/>
+<view class="wordsnum">{{desc.length}}/100 字</view>
+<view class="bc">
+  <text class="view">是否公开班级</text>
+  <switch class="switch" checked="true" bindchange="bindchange1"/>
+</view>
+<view class="bc">
+  <text class="view">加入班级是否需要审批</text>
+  <switch class="switch" checked="true" bindchange="bindchange2"/>
+</view>
+<button class="button" type="primary" bindtap="creatclass">创建班级</button>

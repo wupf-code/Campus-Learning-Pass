@@ -1,0 +1,46 @@
+<!--class/pages/choices/choicehomework_teacher/choicehomework_teacher.wxml-->
+<label class="view">{{questions.title}}</label>
+<label class="view">共{{questions.questionnum}}题</label>
+<label class="view">发布日期  {{questions.date}}</label>
+<view class="view" wx:if="{{nonedone}}">
+  暂时无人提交
+</view>
+<view wx:else class="view" >
+  班级平均错题数：{{averageerrornum}}
+  <button bindtap="shownosubmit" class="showcontent">查看未提交详情</button>
+  <button bindtap="showsubmit" class="showcontent_">查看已提交详情</button>
+</view>
+
+<van-dialog
+  use-slot
+  show="{{showsubmit}}"
+  confirm-button-text="取消"
+  confirm-button-color="#B3B3B3"
+  bind:close="goback">
+  <view>提交情况如下</view>
+  <view class="table">
+    <view class="table_item">成员名</view>
+    <view class="table_item">错题数</view>
+    <view wx:for-items="{{errornum}}" wx:for-item="item">
+      <view class="table_item">{{item[0]}}</view>
+      <view class="table_item">{{item[1]}}</view>
+    </view>
+  </view>
+</van-dialog>
+
+<van-dialog
+  use-slot
+  show="{{shownosubmit}}"
+  confirm-button-text="取消"
+  confirm-button-color="#B3B3B3"
+  bind:close="goback">
+  <view class="view_" wx:if="{{notsubmit.length==0}}">
+    已全部提交
+  </view>
+  <view wx:else>
+    <view class="view_">未提交名单如下</view>
+    <view class="view_" wx:for-items="{{notsubmit}}" wx:for-item="item">
+      {{item}}
+    </view>
+  </view>
+</van-dialog>

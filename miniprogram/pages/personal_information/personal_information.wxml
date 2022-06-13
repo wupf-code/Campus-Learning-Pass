@@ -1,0 +1,38 @@
+<!--pages/personal_information/personal_information.wxml-->
+<block wx:if="{{!hasUserInfo}}">
+    <view class="view_toregister">你还没有授权登录哦</view>
+    <button class="button_toregister"  bindtap="toregister" type="primary"> 去授权 </button>
+</block>
+<block wx:else if>
+    <image class="image_profile_icon" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+    <view class="view_information">
+      <text decode="{{true}}">昵称&nbsp;&nbsp;&nbsp;</text>
+      <text wx:if="{{userInfo.nickName.length==0}}">未填写</text>
+      <text wx:else decode="{{true}}">{{userInfo.nickName}}</text>
+    </view>
+    
+    <view class="view_information">
+      <text decode="{{true}}">性别&nbsp;&nbsp;&nbsp;</text>
+      <text wx:if="{{userInfo.gender==1}}" decode="{{true}}">男</text>
+      <text wx:else decode="{{true}}">女</text>
+    </view>
+
+    <view class="view_information">
+      <text decode="{{true}}">国家&nbsp;&nbsp;&nbsp;</text>
+      <text wx:if="{{userInfo.country.length==0}}" decode="{{true}}">未填写</text>
+      <text wx:else decode="{{true}}">{{userInfo.country}}</text>
+    </view>
+
+    <view class="view_information">
+      <text decode="{{true}}">&nbsp;省&nbsp;&nbsp;&nbsp;&nbsp;</text>
+      <text wx:if="{{userInfo.province.length==0}}" decode="{{true}}">未填写</text>
+      <text wx:else decode="{{true}}">{{userInfo.province}}</text>
+    </view>
+
+    <view class="view_information">
+      <text decode="{{true}}">&nbsp;市&nbsp;&nbsp;&nbsp;&nbsp;</text>
+      <text wx:if="{{userInfo.city.length==0}}" decode="{{true}}">未填写</text>
+      <text wx:else decode="{{true}}">{{userInfo.city}}</text>
+    </view>
+
+</block>

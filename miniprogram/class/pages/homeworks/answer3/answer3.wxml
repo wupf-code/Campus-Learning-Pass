@@ -1,0 +1,54 @@
+<!--miniprogram/class/pages/answer3/answer3.wxml-->
+<!--miniprogram/class/pages/answer/answer.wxml-->
+<!-- 待完成去回答界面 -->
+<scroll-view class="scroll-view">
+  <view class="name-class">
+    <text>
+     作业发布时间：
+      {{time}}
+    </text>
+  </view>
+
+  <view class="view">
+    <text>
+    作业内容:
+    {{words}}
+    </text>
+  </view>
+<!-- 作业图片 -->
+  <view wx:if="{{photo_url.length>0}}">
+    <swiper easing-function="linear" class="swiper" autoplay indicator-dots="true" indicator-active-color="#BBBBBB" indicator-color="#E6E6E6" circular interval="5000">
+      <view wx:for-items="{{photo_url}}" wx:for-item="item" wx:key="key">
+      <swiper-item class="swiper-item"><image bindtap="lookimage" data-item="{{item}}"  mode="heightFix" src="{{item}}"/></swiper-item>
+      </view>
+    </swiper>
+  </view>
+
+  <block>
+  <view class="view1" >作业回答内容:</view>
+  <textarea bindinput="addwords" value="{{content}}" confirm-type="return" maxlength="10000" auto-height class="input_" placeholder="请输入作业内容"/>
+  <view class="wordsnum">{{content.length}}字</view>
+  <label class="view">添加图片:</label>
+  <view wx:if="{{photo2.length==0}}">
+    <button bindtap="addimage"><image class="image" src="cloud://cloud1-9gfintjc7bd624b3.636c-cloud1-9gfintjc7bd624b3-1305383038/image/addimage.jpg"></image></button>
+  </view>
+  <view wx:else>
+    <view wx:for-items="{{photo2}}" wx:for-item="item" wx:key="key">
+      <image src="{{item}}" class="addimage" bindtap="lookimage2" data-item="{{item}}"></image>
+    </view>
+    <button bindtap="addimage" class="addimage"><image class="addimage_" src="cloud://cloud1-9gfintjc7bd624b3.636c-cloud1-9gfintjc7bd624b3-1305383038/image/addimage.jpg"></image></button>
+  </view>
+</block>
+<block>
+  <button type="primary" bindtap="uploadtocloud" class="button">修改回答</button>
+</block>
+
+</scroll-view>
+<dialog id='dialog'
+        title='上传' 
+        content='你确定要上传吗'
+        cancelText='取消' 
+        confirm='确定' 
+        isShown="{{isShown1}}"
+        bind:cancelEvent="closedialog" 
+        bind:confirmEvent="allowupload"/>

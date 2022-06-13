@@ -1,0 +1,36 @@
+/* miniprogram/class/pages/up/up.wxss */
+.controldistance{
+  margin-bottom: 20%;
+}
+.view_toregister{
+  display: flex;
+  justify-content: center;
+  margin-top: 50%;
+  font-size: 60rpx;
+}
+.button_acticle{
+  border: 0;
+  padding: 0;
+  z-index: 100;
+}
+.divLine{
+  background: #E0E3DA;
+  width: 100%;
+  height: 5rpx;
+ }
+.van-card{
+  height: 10%;
+}
+
+.van-button{
+  z-index: 300;
+  position: relative;
+}
+.title-class{
+  font-size: 50rpx;
+}
+.desc-class{
+  font-size: 30rpx;
+}
+
+

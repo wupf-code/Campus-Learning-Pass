@@ -1,0 +1,13 @@
+<!--pages/classroom/classroom.wxml-->
+<block wx:if="{{!hasUserInfo}}">
+    <view class="view_toregister">你还没有授权登录哦</view>
+    <button class="button_toregister"  bindtap="toregister" type="primary"> 去授权 </button>
+</block>
+
+<block wx:else>
+    <image class="image_profile_icon" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+    <text class="button_register">{{userInfo.nickName}}</text>
+    <button class="class" type="primary" bindtap="createclass">创建班级</button>
+    <button class="class" type="primary" bindtap="joinclass">加入班级</button>
+    <button class="class" type="primary" bindtap="myclass">我的班级</button>
+</block>

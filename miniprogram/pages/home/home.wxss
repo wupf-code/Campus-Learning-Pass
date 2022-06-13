@@ -1,0 +1,54 @@
+/* pages/home/home.wxss */
+/* swiper{
+  width: 100%;
+  height: 800rpx;
+} */
+.view_home_acticle_title{
+  margin-top: 70%;
+  margin-left: 38%;
+  font-size: 50rpx;
+}
+.button_home_acticle_more{
+  margin-left: 60%;
+  font-size: 30rpx;
+  color: #A2A2A2;
+}
+.controldistance{
+  margin-bottom: 20%;
+}
+.articleshow{
+  left: 5rpx;
+}
+.divLine{
+  background: #E0E3DA;
+  width: 100%;
+  height: 5rpx;
+ }
+.title-class{
+  width: 100%;
+  font-size: 50rpx;
+}
+.desc-class{
+  font-size: 30rpx;
+  left: 5rpx;
+  display: inline-flex;
+}
+.button_acticle{
+  border: 0;
+  padding: 0;
+}
+.noarticle{
+  font-size: 40rpx;
+  margin-left: 43%;
+}
+.jrkc{
+  margin-top:5rpx;
+  font-size: larger;
+  background-color: #bff1bb;
+  height: 100rpx;
+}
+.divLine{
+  background: #777977;
+  width: 100%;
+  height: 1rpx;
+ }

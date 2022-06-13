@@ -1,0 +1,10 @@
+<!--class/pages/choices/addquestions/addquestions.wxml-->
+  <label class="view">作业标题</label>
+  <input bindinput="addtitle" value="{{title}}" placeholder="请输入标题" class="input" maxlength="20"/>
+  <label class="view">作业题数</label>
+  <picker bindchange="picknum" mode="selector" value="" range="{{choicenum}}">
+    <view class="picker">
+      当前选择：{{choicenum[index]}}
+    </view>
+  </picker>
+  <button type="primary" bindtap="toaddchoices" class="button">开始出题</button>

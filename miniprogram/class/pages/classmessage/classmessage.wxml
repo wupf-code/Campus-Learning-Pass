@@ -1,0 +1,65 @@
+<!--class/pages/classmessage/classmessage.wxml-->
+<view class="inform">
+
+  <view class="defaultText" wx:if="{{groupList.length==0}}">暂时没有新的通知</view>
+
+  <view wx:else>
+    <button class="clearbutton" bindtap="clearmessage">一键清空</button>
+    <view wx:for-items="{{groupList}}" wx:for-item="item" wx:key="{{item}}" class="itemBar">
+        <!--被移出班级-->
+        <view wx:if="{{item.type=='removedFromGroup'}}" class="notInfoDetContent">
+          <view class="infoContent">
+            <text class="itemName">被移出班级</text>
+            <text>你已被移出班级 id:{{item.gid}}</text>
+          </view>
+        </view>
+        
+        <!--加入公开班级-->
+        <view wx:if="{{item.type=='joinPublicGroupSuccess'}}" class="notInfoDetContent">
+          <view class="infoContent">
+            <text class="itemName">成功加入班级</text>
+            <text>你成功加入班级 id:{{item.gid}}</text>
+          </view>
+        </view>
+        
+        <!--班级解散-->
+        <view wx:if="{{item.type=='deleteGroupChat'}}" class="notInfoDetContent">
+          <view class="infoContent">
+            <text class="itemName">班级解散</text>
+            <text>你所在班级已被解散 id:{{item.gid}}</text>
+          </view>
+        </view>
+
+        <!--申请加入班级-->
+        <view wx:if="{{item.type=='joinGroupNotifications'}}" class="notInfoDetContent">
+          <view class="infoContent">
+            <text class="itemName">申请加入班级</text>
+            <text>{{item.from}}申请加入班级 id:{{item.gid}}</text>
+            <view wx:if="{{item.reason==''}}" class="showbutton">
+              <button data-classid="{{item.gid}}" data-applicant="{{item.fromJid.name}}" class="agreebutton" bindtap="agreejoinclass">同意</button>
+              <button data-classid="{{item.gid}}" data-applicant="{{item.fromJid.name}}" class="refusebutton" bindtap="rejectclass">拒绝</button>
+            </view>
+            <view wx:else>
+              <button class="havedone">{{item.reason}}</button>
+            </view>
+          </view>
+        </view>
+        
+        <!--成员加入-->
+        <view wx:if="{{item.type=='memberJoinPublicGroupSuccess'}}" class="notInfoDetContent">
+          <view class="infoContent">
+            <text class="itemName">成员加入</text>
+            <text>{{item.from}}成功加入班级 id:{{item.gid}}</text>
+          </view>
+        </view>
+
+        <!--成员加入-->
+        <view wx:if="{{item.type=='leaveGroup'}}" class="notInfoDetContent">
+          <view class="infoContent">
+            <text class="itemName">成员退出</text>
+            <text>{{item.from}}离开了班级 id:{{item.gid}}</text>
+          </view>
+        </view>
+    </view>
+  </view>
+</view>

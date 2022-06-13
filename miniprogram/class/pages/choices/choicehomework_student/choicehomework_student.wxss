@@ -1,0 +1,41 @@
+/* class/pages/choices/choicehomework_student/choicehomework_student.wxss */
+.view{
+  font-size: 50rpx;
+  margin-top: 200rpx;
+}
+.bottombutton{
+  position: fixed;
+  bottom: 50rpx;
+  width: 40%;
+  left: 5%;
+}
+.bottombutton_{
+  position: fixed;
+  bottom: 50rpx;
+  width: 40%;
+  right: 5%;
+}
+.questiontitle{
+  margin: 100rpx;
+  width: auto;
+  background-color: rgb(204,204,204);
+  font-size: 50rpx;
+  height: auto;
+  margin-left: 10%;
+}
+.oneline{
+  display: inline-block;
+}
+.choice{
+  font-size: 40rpx;
+  margin-top: 50rpx;
+  margin-left: 10%;
+}
+.panduan{
+  margin-top: 100rpx;
+  font-size: 50rpx;
+  margin-left: 50rpx;
+}
+.showchoices{
+  margin-left: 10%;
+}

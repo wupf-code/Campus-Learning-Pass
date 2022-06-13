@@ -1,0 +1,51 @@
+<!-- <view class="view_box"> -->
+  <swiper easing-function="linear" autoplay indicator-dots="true" indicator-active-color="#BBBBBB" indicator-color="#E6E6E6" circular interval="5000" style="height:{{Height}}">
+  <swiper-item><image style="width:100%" bindtap="toclass" bindload="imgHeight" mode="widthFix" src="cloud://cloud1-9gfintjc7bd624b3.636c-cloud1-9gfintjc7bd624b3-1305383038/image/home_joinclasses.jpg"/></swiper-item>
+  <swiper-item><image style="width:100%" bindtap="topersonalarticle" bindload="imgHeight" mode="widthFix" src="cloud://cloud1-9gfintjc7bd624b3.636c-cloud1-9gfintjc7bd624b3-1305383038/image/home_becomewriter.jpg"/></swiper-item>
+  <swiper-item><image style="width:100%" bindtap="toquestionandask" bindload="imgHeight" mode="widthFix" src="cloud://cloud1-9gfintjc7bd624b3.636c-cloud1-9gfintjc7bd624b3-1305383038/image/home_question.jpg"/></swiper-item>
+</swiper>
+
+<view style="font-size: x-large; color: coral;">今日课程：</view>
+<view style="font-size: small;margin-left: 80%;">{{list.length}}门课</view>
+ <!-- 分割线 -->
+<view class="container">
+  <view class="divLine"></view>
+</view>
+<view wx:for-items="{{list}}" wx:for-item="item" wx:key="key" class="jrkc">{{item.kcxx}}</view>
+<view class="view_home_acticle_title">美文推荐</view>
+<button class="button_home_acticle_more" bindtap="toallarticle">>>更多</button>
+
+<view wx:if="{{articlenum==0}}">
+    <text class="noarticle">暂无文章</text>
+</view>
+<view wx:else>
+  <view wx:for-items="{{articleshow}}" wx:for-item="item" wx:key="key" class="articleshow">
+    <view wx:if="{{item.photo_url==''}}">
+      <button bindtap="selectarticle" data-item="{{item}}" class="button_acticle">
+          <van-card
+          data-item="{{item}}"
+          thumb=cloud://cloud1-9gfintjc7bd624b3.636c-cloud1-9gfintjc7bd624b3-1305383038/image/default_article_image.jpg"
+          thumb-mode="scaleToFill"
+          desc="{{articlecontent[index]}}"
+          title="{{item.title}}"
+          title-class="title-class"
+          desc-class="desc-class">      
+          </van-card>
+        </button>
+      <view class="divLine"/>
+    </view>
+    <view wx:else>
+      <button bindtap="selectarticle" data-item="{{item}}" class="button_acticle">
+        <van-card
+        thumb="{{item.photo_url[0]}}"
+        thumb-mode="scaleToFill"
+        desc="{{articlecontent[index]}}"
+        title="{{item.title}}"
+        title-class="title-class"
+        desc-class="desc-class">      
+        </van-card>
+        <view class="divLine"/>
+      </button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,102 @@
+<!--miniprogram/class/pages/up/up.wxml-->
+<!--老师作业界面-->
+<!-- 待批改回答 -->
+<scroll-view>
+  <tabs tabs="{{tabs}}" bind:tabsitemchange="handletabsitemchange">
+    <!-- 判断已上传作业页面 -->
+    <block wx:if="{{tabs[0].isactive}}">
+      <view wx:if="{{uploadcards.length==0}}">
+        当前没有作业需要批改哦
+      </view>
+      <view wx:else>
+        <view wx:for-items="{{uploadcards}}" wx:for-item="item" wx:key="key">
+          <!--如果文件不存在-->
+          <view wx:if="{{item.length==0}}">
+          </view>
+          <!--如果文件里不包含图片路径-->
+          <view wx:elif="{{item.aphoto_url.length==0}}">
+            <button bindtap="topigai" data-item="{{item.answer_id}}" class="button_acticle">
+              <van-card
+                thumb="cloud://cloud1-9gfintjc7bd624b3.636c-cloud1-9gfintjc7bd624b3-1305383038/image/default_article_image.jpg"
+                thumb-mode="scaleToFill" desc="{{item.answer_name}}" tag="{{item.status}}" title="{{item.time}}"
+                title-class="title-class" desc-class="desc-class">
+              </van-card>
+            </button>
+            <view class="divLine" />
+          </view>
+          <!--如果文件有图片路径-->
+          <view wx:else>
+            <button bindtap="topigai" data-item="{{item.answer_id}}" class="button_acticle">
+              <van-card thumb="{{item.aphoto_url[0]}}" thumb-mode="scaleToFill" tag="{{item.status}}"
+                desc="{{item.answer_name}}" title="{{item.time}}" title-class="title-class" desc-class="desc-class">
+              </van-card>
+              <view class="divLine" />
+            </button>
+          </view>
+        </view>
+      </view>
+    </block>
+
+    <!--已批改页面-->
+    <block wx:if="{{tabs[1].isactive}}">
+      <view wx:if="{{uploadcards2.length==0}}">
+        当前没有批改过的作业哦
+      </view>
+      <view wx:else>
+        <view wx:for-items="{{uploadcards2}}" wx:for-item="item" wx:key="key">
+          <!--如果文件不存在-->
+          <view wx:if="{{item.length==0}}">
+          </view>
+          <!--如果文件里不包含图片路径-->
+          <view wx:elif="{{item.aphoto_url.length==0}}">
+            <button bindtap="topigai2" data-item="{{item.answer_id}}" class="button_acticle">
+              <van-card
+                thumb="cloud://cloud1-9gfintjc7bd624b3.636c-cloud1-9gfintjc7bd624b3-1305383038/image/default_article_image.jpg"
+                thumb-mode="scaleToFill" desc="{{item.answer_name}}" tag="{{item.status}}" title="{{item.time}}"
+                title-class="title-class" desc-class="desc-class">
+              </van-card>
+            </button>
+            <view class="divLine" />
+          </view>
+          <!--如果文件有图片路径-->
+          <view wx:else>
+            <button bindtap="topigai2" data-item="{{item.answer_id}}" class="button_acticle">
+              <van-card thumb="{{item.aphoto_url[0]}}" thumb-mode="scaleToFill" tag="{{item.status}}"
+                desc="{{item.answer_name}}" title="{{item.time}}" title-class="title-class" desc-class="desc-class">
+              </van-card>
+              <view class="divLine" />
+            </button>
+          </view>
+        </view>
+      </view>
+    </block>
+    <!--作业统计情况页面-->
+    <block wx:elif="{{tabs[2].isactive}}">
+      <view>
+        <text>
+          当前作业已完成人数： {{acount}}人
+          </text>
+
+          <text>
+          当前作业未完成人数： {{wcount}}人
+          </text>
+
+          <text>
+          当前上传作业中已批改数： {{ypcount}}份
+          </text>
+
+          <text>
+          当前上传作业中未批改数： {{wpcount}}份
+          </text>
+
+          <text>
+          当前作业未完成名单：{{wmembername}}
+          </text>
+
+          <text>
+          当前作业已完成名单：{{amembername}}
+          </text>
+      </view>
+    </block>
+  </tabs>
+</scroll-view>

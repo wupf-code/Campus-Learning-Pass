@@ -1,0 +1,27 @@
+/* pages/personal_information/personal_information.wxss */
+page{
+  align-items: center
+}
+.view_toregister{
+  margin-top: 50%;
+  font-size: 60rpx;
+}
+.button_toregister{
+  margin-top: 10%;
+}
+.image_profile_icon{
+  width:100%; 
+  padding: 0px;
+  border: 0;
+}
+.button_changeprofileicon{
+  font-size: 30rpx;
+}
+.view_information{
+  margin-top: 10%;
+  width: 85%;
+  display: flex;
+  font-size: 50rpx;
+  flex-direction: row;
+  flex-wrap: wrap;
+}

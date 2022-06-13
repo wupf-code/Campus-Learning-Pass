@@ -1,0 +1,110 @@
+<!--pages/personal_Q&A/personal_Q&A.wxml-->
+<block wx:if="{{!hasUserInfo}}">
+    <view class="view_toregister">你还没有授权登录哦</view>
+    <button class="button_toregister"  bindtap="toregister" type="primary"> 去授权 </button>
+</block>
+<block wx:else>
+  <tabs tabs="{{tabs}}" bind:tabsitemchange="handletabsitemchange">
+  <!--判断我的提问页面-->
+    <block wx:if="{{tabs[0].isactive}}">
+      <view wx:for-items="{{question}}" wx:for-item="item" wx:key="key">
+      <!--如果文件不存在-->
+        <view wx:if="{{item.length==0}}">
+          <view class="view_toregister">你还没有提过问题哦</view>
+        </view>
+
+        <!--如果文件里不包含图片路径-->
+        <view wx:elif="{{item.photo_url.length==0}}">
+          <button bindtap="toquestion" data-item="{{item.question_id}}" class="button_question">
+            <van-card
+            thumb="cloud://cloud1-9gfintjc7bd624b3.636c-cloud1-9gfintjc7bd624b3-1305383038/image/personal_Q&A.jpg"
+            thumb-mode="scaleToFill"
+            desc="{{questioncontent[index]}}"
+            desc-class="desc-class">      
+            <view slot="price">
+              <van-button type="danger" data-item="{{item.question_id}}" bindtap="deletequestion" size="small">删除</van-button>
+            </view>
+            </van-card>
+          </button>
+          <view class="divLine"/>
+        </view>
+
+        <!--如果文件有图片路径-->
+        <view wx:else>
+          <button bindtap="toquestion" data-item="{{item.question_id}}" class="button_question">
+            <van-card
+            thumb="{{item.photo_url[0]}}"
+            thumb-mode="scaleToFill"
+            desc="{{questioncontent[index]}}"
+            desc-class="desc-class">      
+            <view slot="price">
+              <van-button type="danger" data-item="{{item.question_id}}" bindtap="deletequestion" size="small">删除</van-button>
+            </view>
+            </van-card>
+          </button>
+          <view class="divLine"/>
+        </view>
+      </view> 
+    </block>
+
+    <!--判断我的回答页面-->
+    <block wx:elif="{{tabs[1].isactive}}">
+      <view wx:for-items="{{answer}}" wx:for-item="item" wx:key="key">
+
+      <!--如果文件不存在-->
+        <view wx:if="{{item.length==0}}"></view>
+
+        <!--如果文件里不包含图片路径-->
+        <view wx:elif="{{item[1].length==0}}">
+            <button bindtap="toanswer" data-item="{{item}}" class="button_acticle">
+              <van-card
+              thumb="cloud://cloud1-9gfintjc7bd624b3.636c-cloud1-9gfintjc7bd624b3-1305383038/image/personal_Q&A.jpg"
+              thumb-mode="scaleToFill"
+              desc="{{item[2]}}"
+              desc-class="desc-class">
+              <view slot="price">
+                <van-button type="danger" class="van-button" data-item="{{item}}" bindtap="deleteanswer"  size="small">删除</van-button>
+              </view>
+              </van-card>
+            </button>
+          <view class="divLine"/>
+        </view>
+
+        <!--如果文件有图片路径-->
+        <view wx:else>
+          <button bindtap="toanswer" data-item="{{item}}" class="button_acticle">
+              <van-card
+              thumb="{{item[1][0]}}"
+              thumb-mode="scaleToFill"
+              desc="{{item[2]}}"
+              desc-class="desc-class">
+              <view slot="price">
+                <van-button type="danger" class="van-button" data-item="{{item}}" bindtap="deleteanswer" size="small">删除</van-button>
+              </view>
+              </van-card>
+              <view class="divLine"/>
+          </button>
+        </view>
+      </view> 
+    </block>
+  </tabs>
+</block>
+
+
+<dialog id='dialog'
+        title='删除' 
+        content='你确定要删除吗'
+        cancelText='取消' 
+        confirm='确定' 
+        isShown="{{isShown}}"
+        bind:cancelEvent="closedialog" 
+        bind:confirmEvent="allowdeletequestion"/>
+
+<dialog id='dialog1'
+        title='删除' 
+        content='你确定要删除吗'
+        cancelText='取消' 
+        confirm='确定' 
+        isShown="{{isShown1}}"
+        bind:cancelEvent="closedialog" 
+        bind:confirmEvent="allowdeleteanswer"/>

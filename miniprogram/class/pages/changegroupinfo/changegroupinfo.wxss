@@ -1,0 +1,40 @@
+/* class/pages/changegroupinfo/changegroupinfo.wxss */
+.view{
+  font-size: 50rpx;
+}
+.input{
+  margin: 20rpx;
+  width: auto;
+  background-color: rgb(204,204,204);
+  font-size: 50rpx;
+  height: auto;
+}
+.input_{
+  margin: 20rpx;
+  width: auto;
+  background-color:	rgb(204,204,204);
+  font-size: 50rpx;
+  min-height: 200rpx;
+}
+.wordsnum{
+  display: flex;
+  flex-direction: row-reverse;
+  margin-right: 5%;
+  font-size: 30rpx;
+  color:rgb(136,136,136)
+}
+.bc{
+  margin-top: 60rpx;
+  padding: 10rpx;
+  background-color: rgb(204,204,204);
+}
+.button{
+  margin-top: 100rpx;
+  font-size: 50rpx;
+}
+.switch{
+  display: flex;
+  flex-direction: row-reverse;
+  margin-right: 5%;
+  font-size: 30rpx;
+}

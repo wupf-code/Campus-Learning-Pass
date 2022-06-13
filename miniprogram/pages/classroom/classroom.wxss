@@ -1,0 +1,21 @@
+/* pages/classroom/classroom.wxss */
+page{
+  align-items: center
+}
+.view_toregister{
+  margin-top: 50%;
+  font-size: 60rpx;
+}
+.button_toregister{
+  margin-top: 10%;
+}
+.image_profile_icon{
+  margin-top: 50rpx;
+  width:200rpx; 
+  height:200rpx;
+  border-radius: 100rpx;
+}
+.class{
+  margin-top: 10%;
+  font-size: 50rpx;
+}

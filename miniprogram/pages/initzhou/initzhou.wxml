@@ -1,0 +1,21 @@
+<view >
+  <view class='btn' bindtap='bindButtonTap'>年份 </view>
+  <view class='btn2'>
+    <input type='text' class='input' bindinput="bindKeyInput" maxlength='10 ' placeholder="请输入年份如 2021" focus="{{focus}}" />
+  </view>
+</view>
+
+<view class='keaddr'>
+  <view class='btn' bindtap="bindButtonTap2">月份</view>
+  <view class='btn2'>
+    <input type='text' class='input' bindinput="bindKeyInput2" maxlength='2' placeholder="请输入两位数月份如 01" focus="{{focus2}}" />
+  </view>
+</view>
+
+<view class='kelength'>
+  <view class='btn' bindtap="bindButtonTap3">日期</view>
+  <view class='btn2'>
+    <input type='number ' class='input' bindinput="bindKeyInput3" minlength='1' maxlength='2' placeholder="请输入两位数日期如 01" focus="{{focus3}}" />
+  </view>
+</view>
+<button bindtap="save" class='submit' type="primary" style="width: 20vw;">保存</button>

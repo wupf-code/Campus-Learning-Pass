@@ -1,0 +1,75 @@
+<!--class/pages/groupchat/groupchat.wxml-->
+<scroll-view scroll-y="true"  class="scroll-view" scroll-top="{{scrolltop}}">
+  <view class="totalview">
+    <view wx:for-items="{{showmessage}}" wx:for-item="item" wx:key="item">
+      <!--自己发出的消息-->
+      <view wx:if="{{item.member=='me'}}" class="space">
+        <!--显示自己的头像和昵称-->
+        <view class="mymessage">
+          <image src="{{item.avataurl}}" class="myprofile"></image>
+          <text class="myname">{{item.from}}</text>
+        </view>
+      <!--显示自己的消息-->
+      <view class="reverse">
+        <text wx:if="{{item.type=='text'}}" user-select="text" decode="{{true}}" class="mytext">
+          {{item.msg}}
+        </text>
+      </view>
+      <view wx:if="{{item.type=='img'}}" class="myimage_view">
+        <image bindtap="lookimage" mode="aspectFit"  data-road="{{item.msg}}" src="{{item.msg}}"></image>
+      </view>
+    </view>
+
+    <!--别人发出的消息-->
+    <view wx:if="{{item.member=='others'}}" class="space">
+    <!--显示别人的头像和昵称-->
+      <view class="othersmessage">
+        <image src="{{item.avataurl}}" class="othersprofile"></image>
+        <text class="othersname">{{item.from}}</text>
+      </view>
+    <!--显示别人的消息-->
+      <text wx:if="{{item.type=='text'}}" class="otherstext">
+        {{item.msg}}
+      </text>
+      <view wx:if="{{item.type=='img'}}" class="othersimage_view">
+        <image bindtap="lookimage" mode="aspectFit"  data-road="{{item.msg}}" src="{{item.msg}}"></image>
+      </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+<view wx:if="{{!isopenmedia}}" class="sendmessage">
+  <view class="divLineup"/>
+  <textarea value="{{sendwords}}" placeholder="请输入内容" bindinput="inputcontent" class="inputtext" maxlength="300"/>
+  <button bindtap="sendtextmessage" class="sendtext"><image class="sendtextimage" src="cloud://cloud1-9gfintjc7bd624b3.636c-cloud1-9gfintjc7bd624b3-1305383038/image/Enter.png"/></button>
+  <button class="openmedia" bindtap="openmedia"><image class="openmediaimage" src="cloud://cloud1-9gfintjc7bd624b3.636c-cloud1-9gfintjc7bd624b3-1305383038/image/openmedia.png"/></button>
+  <view class="divLinedown"/>
+</view>
+<view wx:else class="showmedia">
+  <image bindtap="hidemedia" src="cloud://cloud1-9gfintjc7bd624b3.636c-cloud1-9gfintjc7bd624b3-1305383038/image/Hidemedia.png" class="hidemedia"></image>
+  <button class="btnmedia1" bindtap="chooseimage"><image class="media" src="cloud://cloud1-9gfintjc7bd624b3.636c-cloud1-9gfintjc7bd624b3-1305383038/image/sendimages.png"/></button>
+  <button class="btnmedia1" bindtap="beginorder"><image class="media" src="cloud://cloud1-9gfintjc7bd624b3.636c-cloud1-9gfintjc7bd624b3-1305383038/image/order.png"/></button>
+  <button class="btnmedia1" bindtap="showhomework"><image class="media" src="cloud://cloud1-9gfintjc7bd624b3.636c-cloud1-9gfintjc7bd624b3-1305383038/image/homework.png"/></button>
+  <button class="btnmedia1" bindtap="filemanagement"><image class="media" src="cloud://cloud1-9gfintjc7bd624b3.636c-cloud1-9gfintjc7bd624b3-1305383038/image/filemangement.png"/></button>
+  <button class="btnmedia1" bindtap="toclasssetting"><image class="media" src="cloud://cloud1-9gfintjc7bd624b3.636c-cloud1-9gfintjc7bd624b3-1305383038/image/settings.png"/></button>
+  <view class="divLinebottom"/>
+</view>
+
+
+<van-overlay show="{{ showorder }}" bind:click="onClickHide" lock-scroll >
+  <view class="wrapper">
+    <view class="block">
+      <button bindtap="touchorder" class="orderbutton">触摸签到</button>
+      <button bindtap="locationorder" class="orderbutton">定位签到</button>
+    </view>
+  </view>
+</van-overlay>
+
+<van-overlay show="{{ showhomework }}" bind:click="onClickHide" lock-scroll >
+  <view class="wrapper">
+    <view class="block">
+      <button bindtap="tohomework" class="orderbutton">主观题</button>
+      <button bindtap="tochoice" class="orderbutton">客观题</button>
+    </view>
+  </view>
+</van-overlay>

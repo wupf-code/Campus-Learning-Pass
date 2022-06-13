@@ -1,0 +1,93 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/timeable/timeable",
+    "pages/classroom/classroom",
+    "pages/personal/personal",
+    "pages/personal_information/personal_information",
+    "pages/personal_favourite/personal_favourite",
+    "pages/personal_article/personal_article",
+    "pages/personal_Q&A/personal_Q&A",
+    "pages/personal_setting/personal_setting",
+    "pages/personal_article_write/personal_article_write",
+    "pages/questionandask/questionandask",
+    "pages/askquestion/askquestion",
+    "pages/article/article",
+    "pages/allarticle/allarticle",
+    "pages/question/question",
+    "pages/addSubject/addSubject",
+    "pages/subject/subject",
+    "pages/initzhou/initzhou"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于班级定位点名" 
+    }
+  },
+  "subpackages": [
+    {
+      "root": "class",
+      "pages": [
+        "pages/createclass/createclass",
+        "pages/joinclass/joinclass",
+        "pages/myclass/myclass",
+        "pages/groupchat/groupchat",
+        "pages/classmessage/classmessage",
+        "pages/classsetting/classsetting",
+        "pages/changegroupinfo/changegroupinfo",
+        "pages/classorderteacher/classorderteacher",
+        "pages/classorderstudent/classorderstudent",
+        "pages/filemanagement/filemanagement",
+        "pages/homeworks/addhomework/addhomework",
+        "pages/homeworks/answer/answer",
+        "pages/homeworks/answer3/answer3",
+        "pages/homeworks/homework/homework",
+        "pages/homeworks/pigai/pigai",
+        "pages/homeworks/pigai2/pigai2",
+        "pages/homeworks/up/up",
+        "pages/choices/choice/choice",
+        "pages/choices/addquestions/addquestions",
+        "pages/choices/addchoices/addchoices",
+        "pages/choices/choicehomework_teacher/choicehomework_teacher",
+        "pages/choices/choicehomework_student/choicehomework_student",
+        "pages/choices/choicehomework_student_prepare/choicehomework_student_prepare"
+      ]
+    }
+  ],
+  "window": {
+    "backgroundColor": "#09F7F7",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTitleText": "飞飞课程表",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list":[
+      {
+        "text": "主页",
+        "pagePath": "pages/home/home",
+        "iconPath": "image/home_0.jpg",
+        "selectedIconPath": "image/home_1.jpg"
+      },
+      {
+        "text": "课表",
+        "pagePath": "pages/timeable/timeable",
+        "iconPath": "image/timeable_0.jpg",
+        "selectedIconPath": "image/timeable_1.jpg"
+      },
+      {
+        "text": "班级",
+        "pagePath": "pages/classroom/classroom",
+        "iconPath": "image/classroom_0.jpg",
+        "selectedIconPath": "image/classroom_1.jpg"
+      },
+      {
+        "text": "我的",
+        "pagePath": "pages/personal/personal",
+        "iconPath": "image/personal_0.jpg",
+        "selectedIconPath": "image/personal_1.jpg"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

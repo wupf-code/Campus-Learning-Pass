@@ -1,0 +1,32 @@
+/* class/pages/choices/choicehomework_teacher/choicehomework_teacher.wxss */
+page{
+  align-items: center;
+}
+.view{
+  font-size: 60rpx;
+  margin-top: 100rpx;
+}
+.view_{
+  font-size: 60rpx;
+}
+.showcontent{
+  margin-top: 200rpx;
+  color: rgb(34,255,34);
+  border: 5rpx solid 	rgb(34,255,34);
+}
+.showcontent_{
+  margin-top: 50rpx;
+  color: rgb(34,255,34);
+  border: 5rpx solid 	rgb(34,255,34);
+}
+.table{
+  width: 80%;
+  margin-left: 10%;
+}
+.table_item{
+  min-width:200rpx;
+  align-items: center;
+  display: table-cell;
+  border: 2rpx solid;
+  font-size: 50rpx;
+}

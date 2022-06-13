@@ -1,0 +1,24 @@
+/* class/pages/myclass/myclass.wxss */
+.title{
+  background-color: #1AE642;
+  font-size: 65rpx;
+  width: 100%;
+  height:100rpx;
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+}
+.groups{
+  background-color: rgb(230,230,230);
+  margin-top: 30rpx;
+}
+.message{
+  top: 0prx;
+  right: 0rpx;
+  padding: 0prx;
+  position: fixed;
+}
+.message_{
+  height: 100rpx;
+  width: 100rpx;
+}

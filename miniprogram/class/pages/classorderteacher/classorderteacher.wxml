@@ -1,0 +1,15 @@
+<!--class/pages/classorderteacher/classorderteacher.wxml-->
+<button bindtap="stoporder" type="primary" class="stoporder">停止点名</button>
+<view class="showsecond">点名时长: {{second}}秒</view>
+
+<van-dialog
+  use-slot
+  show="{{ showabsentlist }}"
+  confirm-button-text="取消"
+  confirm-button-color="#B3B3B3"
+  bind:close="goback">
+  <view>缺勤名单如下</view>
+  <view wx:for-items="{{absentlist}}" wx:for-item="item" wx:key="item">
+    <view>{{item}}</view>
+  </view>
+</van-dialog>
